@@ -1,0 +1,80 @@
+﻿@model OpenBarter.Models.Want
+
+@{
+    ViewBag.Title = "What do you want?";
+}
+
+<h2>What do you want?</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        
+
+        @Html.HiddenFor(model => model.Id)
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CategoryID)
+        </div>
+        <div class="editor-field">
+            <select id="category_id" name="category_id">
+                @foreach(var category in ViewBag.CategoryList){
+                <option value="@category.Id"
+                    @if(category.Id == Model.CategoryID)
+                    { 
+                        @: selected 
+                    } 
+
+                    >@category.Name</option>
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.CategoryID)
+
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tags)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Tags)
+            @Html.ValidationMessageFor(model => model.Tags)
+        </div>
+
+
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to My Profile", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

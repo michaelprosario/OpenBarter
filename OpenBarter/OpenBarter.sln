@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenBarter", "OpenBarter\OpenBarter.csproj", "{B6CF436A-EE03-45DC-BA77-6F0AC0976563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenBarter.Tests", "OpenBarter.Tests\OpenBarter.Tests.csproj", "{DEE8A1AB-1657-417D-A520-933F4B2EA064}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6CF436A-EE03-45DC-BA77-6F0AC0976563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6CF436A-EE03-45DC-BA77-6F0AC0976563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6CF436A-EE03-45DC-BA77-6F0AC0976563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6CF436A-EE03-45DC-BA77-6F0AC0976563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEE8A1AB-1657-417D-A520-933F4B2EA064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE8A1AB-1657-417D-A520-933F4B2EA064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE8A1AB-1657-417D-A520-933F4B2EA064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE8A1AB-1657-417D-A520-933F4B2EA064}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

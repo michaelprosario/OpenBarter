@@ -1,0 +1,39 @@
+﻿@model OpenBarter.Models.OfferForTrade
+
+@{
+    ViewBag.Title = "AddOfferForTrade";
+}
+
+<h2>Add Offer For Trade</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>OfferForTrade</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Offer)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Offer)
+            @Html.ValidationMessageFor(model => model.Offer)
+        </div>
+
+
+        
+         @Html.HiddenFor(model => model.ForTradeID)
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

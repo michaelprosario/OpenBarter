@@ -1,0 +1,40 @@
+﻿@model OpenBarter.Models.OfferForWant
+
+@{
+    ViewBag.Title = "Make an Offer";
+}
+
+<h2>Make an Offer</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>OfferForWant</legend>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Offer)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Offer)
+            @Html.ValidationMessageFor(model => model.Offer)
+        </div>
+
+     
+            @Html.HiddenFor(model => model.WantID)
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

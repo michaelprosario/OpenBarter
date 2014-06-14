@@ -1,0 +1,51 @@
+﻿@model OpenBarter.Models.ForTrade
+
+@{
+    ViewBag.Title = "ViewForTrade";
+}
+
+<h2>View Item For Trade</h2>
+
+<fieldset>
+<legend>ForTrade</legend>
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>        
+@Html.DisplayFor(model => model.Description)
+<br />
+<br />
+
+Posted by @Html.DisplayNameFor(model => model.CreatedBy) on @Html.DisplayFor(model => model.CreatedAt)
+<br />   
+
+Tags: @Html.DisplayFor(model => model.Tags)
+<br />
+ 
+Status: @Html.DisplayFor(model => model.Status)
+<br />
+</fieldset>
+
+
+<h3>Offers</h3>
+<a href="/listing/AddOfferForTrade/@Model.Id">Make an Offer</a>
+<table>
+    <tr>
+        <td>Offer</td>
+        <td>By</td>
+        <td>Time Stamp</td>
+    </tr>
+@foreach (var offer in ViewBag.Offers)
+{
+    <tr>
+        <td>@offer.Offer</td>
+        <td>@offer.CreatedBy</td>
+        <td>@offer.CreatedAt</td>
+        <td><a href="/Listing/DeleteOfferForTrade?offerID=@offer.Id&forTradeID=@Model.Id">Delete</a>
+        </td>
+    </tr>
+}
+</table>
+
+
+<p>
+    @Html.ActionLink("Back to List", "ForTrade")
+</p>

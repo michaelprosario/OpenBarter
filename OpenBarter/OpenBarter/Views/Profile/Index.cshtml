@@ -1,0 +1,121 @@
+﻿@model IEnumerable<OpenBarter.Models.Want>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script>
+
+    function handleDeleteAction() {
+        var msg = "Press [OK] to confirm your intent to delete this item.";
+        if (confirm(msg)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+
+
+
+
+
+<h2>My "For Trade" Items</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateForTrade")
+</p>
+<table width="100%" >
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.MyForTradeList) {
+    <tr>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Description
+        </td>
+        <td>
+            @item.Status
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditForTrade", new { id=item.Id }) |
+            <a href="/profile/DeleteForTrade/@item.Id" onclick="return handleDeleteAction()">Delete</a>
+        </td>
+    </tr>
+    
+    
+}
+
+</table>
+
+
+<h2>My Wanted Items</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateWant")
+</p>
+<table width="100%" >
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.MyWantList) {
+    <tr>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Description
+        </td>
+        <td>
+            @item.Status
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditWant", new { id=item.Id }) |
+            <a href="/profile/DeleteWant/@item.Id" onclick="return handleDeleteAction()">Delete</a>
+
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+<h2>My Profile ( <a href="/profile/EditMyUserData">Edit</a>) </h2>
+<ul>
+
+    <li>@ViewBag.MyUserData.AboutMe</li>
+    <li>Email: @ViewBag.MyUserData.Email</li>
+    <li>Website Link: <a href="@ViewBag.MyUserData.WebsiteURL" target="_blank">@ViewBag.MyUserData.WebsiteURL</a></li>
+    <li>Twitter Link: <a href="@ViewBag.MyUserData.TwitterURL" target="_blank">@ViewBag.MyUserData.TwitterURL</a></li>
+    <li>Etsy Link: <a href="@ViewBag.MyUserData.EtsyURL" target="_blank">@ViewBag.MyUserData.EtsyURL</a></li>
+    <li>Amazon Link: <a href="@ViewBag.MyUserData.AmazonURL" target="_blank">@ViewBag.MyUserData.AmazonURL</a></li>
+    <li>E-Bay Link: <a href="@ViewBag.MyUserData.EbayURL" target="_blank">@ViewBag.MyUserData.EbayURL</a></li>
+
+
+
+
+</ul>

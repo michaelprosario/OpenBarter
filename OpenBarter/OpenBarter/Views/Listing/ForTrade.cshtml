@@ -1,0 +1,48 @@
+﻿@model IEnumerable<OpenBarter.Models.ForTrade>
+
+@{
+    ViewBag.Title = "ForTrade";
+}
+
+<style>
+    .divItem {
+        padding:10px;
+        border-bottom:1px solid black;
+    }
+
+    .divCategory {
+        border-bottom:1px solid black;
+        border-top:3px solid black;
+        padding:10px;
+        font-size:20pt;
+    }
+
+</style>
+
+<h2>Items For Trade</h2>
+
+
+@foreach (var c in ViewBag.Categories)
+{
+    var itemsInCategory = Model.Where(x => x.CategoryID == c.Id);
+    
+    <div class="divCategory">@c.Name</div>
+    
+    foreach(var item in itemsInCategory)
+    {
+    
+            <div class="divItem">
+            <span style="font-weight:bold;">@Html.DisplayFor(modelItem => item.Name) : </span>
+            
+            @Html.DisplayFor(modelItem => item.Description)<br /><br />
+            Posted by @Html.DisplayFor(modelItem => item.CreatedBy) at @Html.DisplayFor(modelItem => item.CreatedAt)
+
+            <br />
+            @Html.ActionLink("Details", "ViewForTrade", new { id=item.Id }) 
+            </div>
+    } 
+    <br /><br />
+       
+}
+
+

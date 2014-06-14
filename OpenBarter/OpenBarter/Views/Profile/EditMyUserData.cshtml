@@ -1,0 +1,97 @@
+﻿@model OpenBarter.Models.UserData
+
+@{
+    ViewBag.Title = "Edit My User Profile";
+}
+
+<h2>Edit My User Profile</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UserData</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AboutMe)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.AboutMe)
+            @Html.ValidationMessageFor(model => model.AboutMe)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EbayURL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EbayURL)
+            @Html.ValidationMessageFor(model => model.EbayURL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AmazonURL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AmazonURL)
+            @Html.ValidationMessageFor(model => model.AmazonURL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EtsyURL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EtsyURL)
+            @Html.ValidationMessageFor(model => model.EtsyURL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TwitterURL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TwitterURL)
+            @Html.ValidationMessageFor(model => model.TwitterURL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LinkedInURL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LinkedInURL)
+            @Html.ValidationMessageFor(model => model.LinkedInURL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WebsiteURL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WebsiteURL)
+            @Html.ValidationMessageFor(model => model.WebsiteURL)
+        </div>
+
+
+
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to My Profile", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
